@@ -1,7 +1,5 @@
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 
 public class MergeSortedArraysTest {
 	
@@ -11,7 +9,7 @@ public class MergeSortedArraysTest {
 		int[] input1 = {};
 		int[] input2 = {};
 		int[] merged = new int[input1.length+input2.length];
-		int[] expected = MergeSortedArrays.mergeArrays(input1,input2,input1.length,input2.length,merged);
+		int[] expected = MergeSortedArrays.join(input1,input1.length,input2,input2.length,merged);
 		assertArrayEquals(input1,expected);
 	}
 	
@@ -22,7 +20,7 @@ public class MergeSortedArraysTest {
 		int[] input2 = {2,3,4,6};
 		int[] merged = new int[input1.length+input2.length];
 		int[] expected = {1,2,3,4,5,6,7};
-		int[] result = MergeSortedArrays.mergeArrays(input1,input2,input1.length,input2.length,merged);
+		int[] result = MergeSortedArrays.join(input1,input1.length,input2,input2.length,merged);
 		assertArrayEquals(expected,result);
 	
 	}
