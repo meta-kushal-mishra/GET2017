@@ -1,15 +1,14 @@
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-//class to test the functioning of wholePyramid method 
-//of TrianglePyramid class
-public class TrianglePyramidTest
-{
+/* class to test the functioning of wholePyramid method 
+of TrianglePyramid class*/
+public class TrianglePyramidTest{
+	
 	// test case for valid input
 	@Test
-	public void test() 
-	{
+	public void test(){
+		
 		// initializing the resultant string array
 		String[] result = {"12345"," 1234","  123","   12","    1"};
 		
