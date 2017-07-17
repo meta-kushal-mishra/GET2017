@@ -4,7 +4,7 @@ class MergeSortedArrays
 {
  // Merge arr1[0..n1-1] and arr2[0..n2-1] 
  // into arr3[0..n1+n2-1]
- public static int[] mergeArrays(int[] arr1, int[] arr2, int n1,
+ public static int[] join(int[] arr1, int n1, int[] arr2,
                              int n2, int[] arr3)
  {
      int i = 0, j = 0, k = 0;
@@ -48,7 +48,7 @@ class MergeSortedArrays
      //resultant array
      int[] arr3 = new int[n1+n2];
       
-     int result[] =  mergeArrays(arr1, arr2, n1, n2, arr3);
+     int result[] =  join(arr1, n1, arr2, n2, arr3);
   
      System.out.println("Array after merging");
      for (int i=0; i < n1+n2; i++)
