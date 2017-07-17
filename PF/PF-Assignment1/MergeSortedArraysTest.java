@@ -16,14 +16,6 @@ public class MergeSortedArraysTest {
 	}
 	
 	@Test
-	public void singleElement(){
-		System.out.println("Test for single element in array");
-		int[] input = {5};
-		int[] expected = RemoveDuplicates.removeDuplicates(input);
-		assertEquals("one element",expected,expected);
-	}
-	
-	@Test
 	public void validInput(){
 		System.out.println("Test for valid array");
 		int[] input1 = {1,3,5,7};
