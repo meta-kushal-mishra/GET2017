@@ -1,17 +1,17 @@
 //Java program to merge two sorted arrays
 
-class MergeSortedArrays
-{
+class MergeSortedArrays{
+	
  // Merge arr1[0..n1-1] and arr2[0..n2-1] 
  // into arr3[0..n1+n2-1]
  public static int[] join(int[] arr1, int n1, int[] arr2,
-                             int n2, int[] arr3)
- {
+                             int n2, int[] arr3){
+	 
      int i = 0, j = 0, k = 0;
   
      // Traverse both array
-     while (i<n1 && j <n2)
-     {
+     while (i<n1 && j <n2){
+	     
          // Check if current element of first
          // array is smaller than current element
          // of second array. If yes, store first
@@ -35,9 +35,9 @@ class MergeSortedArrays
      return result;
  }
   
- public static void main (String[] args) 
- {
-	 //initializing array1
+ public static void main (String[] args){
+	 
+     //initializing array1
      int[] arr1 = {1, 3, 5, 7};					
      int n1 = arr1.length;
      
