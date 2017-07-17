@@ -4,26 +4,17 @@ public class CheckOrder {
 	// method for checking order of array taking that array as argument
 	public static int orderCheck(int arr[]){
 		int flag = 0;							//flag to track order
-		// check for ascending order
+		// check for order
 		for(int i=0;i<arr.length-1;i++){
-			if(arr[i]<=arr[i+1]){
+			if(arr[i]<=arr[i+1] && (flag==0 || flag==1){
 				flag=1;
+			}
+			else if(arr[i]>=arr[i+1] && (flag==0 || flag==2)){
+				flag=2;
 			}
 			else{
 				flag=0;
 				break;
-			}
-		}
-		// check for descending order
-		if(flag==0){
-			for(int i=0;i<arr.length-1;i++){
-				if(arr[i]>=arr[i+1]){
-					flag=2;
-				}
-				else{
-					flag=0;
-					break;
-				}
 			}
 		}
 		// check for single element in array
