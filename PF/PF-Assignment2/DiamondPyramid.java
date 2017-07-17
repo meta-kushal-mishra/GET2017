@@ -17,8 +17,8 @@ public class DiamondPyramid{
 		// resultant pyramid
 		for(int i=0;i<max_num;i++){
 			
-			result[i] = returnSpaces(max_num,i)+returnNumbers(max_num,i)+returnSpaces(max_num,i);
-			result[2*max_num-2-i] = returnSpaces(max_num,i)+returnNumbers(max_num,i)+returnSpaces(max_num,i);
+			result[i] = spaces(max_num,i)+numbers(max_num,i)+spaces(max_num,i);
+			result[2*max_num-2-i] = spaces(max_num,i)+numbers(max_num,i)+spaces(max_num,i);
 		}
 		
 		//returns resultant string array
