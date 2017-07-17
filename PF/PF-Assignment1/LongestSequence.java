@@ -4,14 +4,15 @@ public class LongestSequence {
 
 	public static void main(String[] args) {
 		int input[]={1,2,3,2,3,4,5,3,4,2,2,3,4,5,6,7,8,1,2,4,5,6,7,8,9};
-		int result[]=LongestSequence.longestSequence(input);
+		LongestSequence.longestSequence(input);
 	}
 	
+	// method returns longest increasing sequence and takes array input
 	public static int[] longestSequence(int input[]){
 		int i=0,j=0,k=0,max=0,start=0,last=0;
 		int length = input.length;
 		if (length==0 || length==1)
-            return input;
+            		return input;
 		for(i=0;i<input.length-1;i++){
 			if(input[i]<input[i+1]){
 				k++;
