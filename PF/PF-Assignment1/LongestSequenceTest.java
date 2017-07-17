@@ -1,7 +1,4 @@
-
-
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class LongestSequenceTest {
@@ -27,7 +24,6 @@ public class LongestSequenceTest {
 		System.out.println("Test for valid array");
 		int[] input = {1,2,3,2,3,4,5,3,4,2,2,3,4,5,6,7,8,1,2,4,5,6,7,8,9};
 		int[] result = LongestSequence.longestSequence(input);
-		System.out.println(result.length);
 		int[] expected = {1, 2,4,5,6,7,8,9};
 		assertArrayEquals(expected,result);
 	}
