@@ -16,14 +16,14 @@ public class TrianglePyramid{
 		// joins spaces and number strings in for of
 		// resultant pyramid
 		for(int i=0;i<max_num;i++){
-			result[i] = returnSpaces(max_num,max_num-i-1)+returnNumbers(max_num,i);
+			result[i] = spaces(max_num,max_num-i-1)+numbers(max_num,i);
 			
 		}
 		
 		//returns resultant string array
 		return result;
 	}
-	public static String returnSpaces(int max_num, int k){
+	public static String spaces(int max_num, int k){
 		
 		// creates string to store spaces
 		String spaces = new String();
@@ -38,7 +38,7 @@ public class TrianglePyramid{
 	}
 	
 	// method to return numbers pattern
-	public static String returnNumbers(int max_num, int k){
+	public static String numbers(int max_num, int k){
 		
 		// creates string to store numbers 
 		String numbers = new String();
