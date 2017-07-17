@@ -11,7 +11,7 @@ public class RemoveDuplicatesTest {
 		System.out.println("Test for no element in array");
 		int[] input = {};
 		int[] expected = RemoveDuplicates.removeDuplicates(input);
-		assertEquals("no  elements",expected,expected);
+		assertEquals("no  elements",input,expected);
 	}
 	
 	@Test
@@ -19,7 +19,7 @@ public class RemoveDuplicatesTest {
 		System.out.println("Test for single element in array");
 		int[] input = {5};
 		int[] expected = RemoveDuplicates.removeDuplicates(input);
-		assertEquals("one element",expected,expected);
+		assertEquals("one element",input,expected);
 	}
 	
 	@Test
