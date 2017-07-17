@@ -1,11 +1,8 @@
-
-
-
 public class JobScheduling {
 	public static void main(String arg[]){
 		int arrival[]={1,5,9,25};
 		int job_size[]={12,7,2,5};
-		int arr[][]=calculateWaitingTime(arrival,job_size);
+		int arr[][]=FCFS(arrival,job_size);
 		for(int i=0;i<arrival.length;i++){
 			for(int j=0;j<5;j++){
 				System.out.print(arr[i][j]+" ");
@@ -13,7 +10,7 @@ public class JobScheduling {
 			System.out.println();
 		}
 	}
-	public static int[][] calculateWaitingTime(int arrival_time[], int job_size[]){
+	public static int[][] FCFS(int arrival_time[], int job_size[]){
 			int job_starts_at[] = new int[arrival_time.length];
 			int waiting_time[] = new int[arrival_time.length];
 			int job_finished_at[] = new int[arrival_time.length];
