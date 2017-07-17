@@ -1,10 +1,10 @@
 // This class creates a diamond pattern using modular approach
-public class DiamondPyramid 
-{
+public class DiamondPyramid{
+	
 	// Method that joins the spaces and numbers string
 	// and builds the pyramid
-	public static String[] wholePyramid(int max_num)
-	{
+	public static String[] wholePyramid(int max_num){
+		
 		// checks if the input is valid 
 		String[] invalid = {"invalid input"};
 		if(max_num<=0)
@@ -15,8 +15,8 @@ public class DiamondPyramid
 		
 		// joins spaces and number strings in for of
 		// resultant pyramid
-		for(int i=0;i<max_num;i++)
-		{
+		for(int i=0;i<max_num;i++){
+			
 			result[i] = returnSpaces(max_num,i)+returnNumbers(max_num,i)+returnSpaces(max_num,i);
 			result[2*max_num-2-i] = returnSpaces(max_num,i)+returnNumbers(max_num,i)+returnSpaces(max_num,i);
 		}
@@ -24,8 +24,9 @@ public class DiamondPyramid
 		//returns resultant string array
 		return result;
 	}
-	public static String returnSpaces(int max_num, int k)
-	{
+	
+	public static String spaces(int max_num, int k){
+		
 		// creates string to store spaces
 		String spaces = new String();
 		
@@ -38,8 +39,8 @@ public class DiamondPyramid
 		return spaces;
 	}
 	
-	// method to return numbers pattern
-	public static String returnNumbers(int n, int k)
+	// method to return numbers pattern and takes maximum num and current posn as argument
+	public static String numbers(int n, int k)
 	{
 		// creates string to store numbers 
 		String numbers = new String();
