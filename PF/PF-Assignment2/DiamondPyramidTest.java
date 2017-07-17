@@ -1,15 +1,14 @@
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-// class to test the functioning of wholePyramid method 
-// of DiamondPyramid class
-public class DiamondPyramidTest
-{
+/*class to test the functioning of wholePyramid method 
+ of DiamondPyramid class */
+public class DiamondPyramidTest{
+	
 	// test case for valid input
 	@Test
-	public void testWholePyramid() 
-	{
+	public void testWholePyramid() {
+		
 		// initializing the resultant string array
 		String[] result = {"    1    ","   121   ","  12321  "," 1234321 ","123454321"," 1234321 ","  12321  "
 				           ,"   121   ","    1    "};
@@ -23,8 +22,8 @@ public class DiamondPyramidTest
 	
 	// test case for invalid input
 	@Test
-	public void testInvalidInput()
-	{
+	public void testInvalidInput(){
+		
 		String[] result = {"invalid input"};
 		String[] expected=DiamondPyramid.wholePyramid(-2);
 		
