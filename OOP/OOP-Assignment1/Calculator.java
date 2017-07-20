@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class Calculator implements ActionListener {
 	
-		Digits[] digit;
+		Digits[] digits;
 		Operator[] operator;
 		Layout layout;
 		Display display;
