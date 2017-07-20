@@ -59,7 +59,7 @@ public class Matrix {
 					
 					int[][] firstMatrix = matrix.addElements();
 					int[][] secondMatrix = matrix.addElements();
-					if(firstMatrix.length != secondMatrix[0].length){
+					if(firstMatrix[0].length != secondMatrix.length){
 						System.out.println("Columns of 1 should be equal to rows of 2");
 						break;
 					}
