@@ -32,10 +32,13 @@ public class ReadQuestions {
 			for(int i=0; i < lines.length; i++) {	//loop to read lines from the file
 				lines[i] = reader.readLine();
 			}
-			reader.close();
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		finally{
+			reader.close();
 		}
 		
 		return lines;
