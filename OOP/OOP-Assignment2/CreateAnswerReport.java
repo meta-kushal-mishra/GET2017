@@ -27,7 +27,8 @@ public class CreateAnswerReport {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+		finally{
 		writer.close();
+		}
 	}
 }
