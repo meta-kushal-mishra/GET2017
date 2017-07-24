@@ -1,0 +1,3 @@
+Participant 1,kushal,21,Amazon,3,Communication,good
+Participant 2,Satyam,22,Flipkart,4,Service Quality/Communication,good
+Participant 3,harsh,17,Flipkart,4,Communication,good
