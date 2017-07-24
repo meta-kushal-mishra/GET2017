@@ -58,7 +58,7 @@ public class SurveyApplication {
 															// for the
 															// participant
 		String[] temp;
-		String ansSet; // To store the partial answer
+		String ansSet = null; // To store the partial answer
 		int singleSelectQuesNo = 0; // index to traverse only the single select
 									// type question
 		System.out.println("Participant " + (participantNo + 1) + ":");
@@ -81,18 +81,20 @@ public class SurveyApplication {
 					}
 					System.out.print("Enter Choice: ");
 					if (question[i].getType().equalsIgnoreCase("Multi Select")) {
-						ansSet = scan.nextLine(); // wait for the answer to question
-						while(true){
-							System.out.println("Do you want to add more?  Y/N");
-							String res = scan.nextLine();
-							if(res.equalsIgnoreCase("Y")){	
-								String add = scan.nextLine();
-								ansSet = ansSet + "/" +add;
-							}
+						String res;
+						String add = null;
+						int count = 0;
+						do{
+							add = scan.nextLine();
+							if (count == 0)
+								ansSet = add;
 							else 
-								break;
-						}
-					
+								ansSet = ansSet + "/" + add;
+							System.out.println("Do you want to add more?  Y/N");
+							res = scan.nextLine();
+							count++;	
+						}while(res.equalsIgnoreCase("Y"));
+						
 						// validate the answer given for multiple select type
 						// question
 						ansSet = ValidateAnswer.validateAnswerMulti(ansSet,
