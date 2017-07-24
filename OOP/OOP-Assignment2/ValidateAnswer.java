@@ -53,7 +53,7 @@ public class ValidateAnswer {
 		}
 	}
 	
-	// validates answer for single correct 
+	// validates answer for numeric type 
 	public static String validateAnswerNumber(String answer) {
 		boolean result = true;
 		
