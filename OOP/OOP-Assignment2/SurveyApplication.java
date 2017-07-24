@@ -80,14 +80,24 @@ public class SurveyApplication {
 						System.out.println(temp[j]); // printing the options
 					}
 					System.out.print("Enter Choice: ");
-					ansSet = scan.nextLine(); // wait for the answer to question
-
 					if (question[i].getType().equalsIgnoreCase("Multi Select")) {
+						ansSet = scan.nextLine(); // wait for the answer to question
+						while(true){
+							System.out.println("Do you want to add more?  Y/N");
+							String res = scan.nextLine();
+							if(res.equalsIgnoreCase("Y")){	
+								String add = scan.nextLine();
+								ansSet = ansSet + "/" +add;
+							}
+							else 
+								break;
+						}
+					
 						// validate the answer given for multiple select type
 						// question
 						ansSet = ValidateAnswer.validateAnswerMulti(ansSet,
 								temp);
-					} else {
+					else {
 						// validate the answer given for single select type
 						// question
 						ansSet = ValidateAnswer.validateAnswerSingle(ansSet,
