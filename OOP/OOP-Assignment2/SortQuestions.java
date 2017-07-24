@@ -9,7 +9,7 @@ public class SortQuestions{
 	
 	
 	// Method to sort the questions based on the question text
-	public void sortQuestions() {
+	public void sortQuestions() throws IOException{
 		String[] lines = read.readLines();	
 		ques = new SurveyApplication().separateLines(lines);		//creating the question objects
 		
@@ -20,7 +20,7 @@ public class SortQuestions{
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
 		SortQuestions sortQues = new SortQuestions();
 		sortQues.sortQuestions();
 	}
