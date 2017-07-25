@@ -28,5 +28,6 @@ public class SortQuestions{
 		}
 		catch(IOException e){
 			e.printStackTrace();
+		}
 	}
 }
