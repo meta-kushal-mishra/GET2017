@@ -22,7 +22,7 @@ public class ReadQuestions {
 	}
 	
 	// method to read all the lines present in the file
-	public String[] readLines() {
+	public String[] readLines() throws IOException {
 		String[] lines=null;
 		try {
 			//initialize the lines object according to number of lines present in the file
