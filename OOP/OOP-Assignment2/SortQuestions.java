@@ -1,6 +1,7 @@
 package oop2;
 
 import java.util.Arrays;
+import java.io.IOException;
 
 public class SortQuestions{
 
@@ -20,8 +21,12 @@ public class SortQuestions{
 		}
 	}
 	
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) {
 		SortQuestions sortQues = new SortQuestions();
-		sortQues.sortQuestions();
+		try{
+			sortQues.sortQuestions();
+		}
+		catch(IOException e){
+			e.printStackTrace();
 	}
 }
