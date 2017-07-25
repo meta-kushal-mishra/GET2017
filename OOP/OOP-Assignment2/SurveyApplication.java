@@ -3,6 +3,7 @@ package oop2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.IOException;
 
 public class SurveyApplication {
 
