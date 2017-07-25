@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class SortQuestions{
 
 	private Question[] ques;
-	private ReadQuestions read = new ReadQuestions("C:/Users/Kushal/workspace/PF1/src/oop2/questions.txt");
+	private ReadQuestions read = new ReadQuestions("questions.txt");
 	
 	
 	// Method to sort the questions based on the question text
