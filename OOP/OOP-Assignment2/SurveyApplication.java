@@ -99,7 +99,9 @@ public class SurveyApplication {
 						// question
 						ansSet = ValidateAnswer.validateAnswerMulti(ansSet,
 								temp);
+					}
 					else {
+						ansSet = scan.nextLine();
 						// validate the answer given for single select type
 						// question
 						ansSet = ValidateAnswer.validateAnswerSingle(ansSet,
@@ -162,7 +164,7 @@ public class SurveyApplication {
 	}
 
 	// Method to fill the whole survey form for each user
-	public void fillSurveyForm() {
+	public void fillSurveyForm() throws IOException {
 		scan = new Scanner(System.in); // initialize the object to take input
 										// from console
 		lines = readQuestions.readLines(); // to store the questions fetched
@@ -214,6 +216,11 @@ public class SurveyApplication {
 		SurveyApplication survey = new SurveyApplication(
 				"questions.txt",
 				"report.txt");
+		try{
 		survey.fillSurveyForm();
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 }
