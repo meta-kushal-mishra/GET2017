@@ -212,8 +212,8 @@ public class SurveyApplication {
 	public static void main(String[] args) {
 		// Creating the object for the survey application
 		SurveyApplication survey = new SurveyApplication(
-				"C:/Users/Kushal/workspace/PF1/src/oop2/questions.txt",
-				"C:/Users/Kushal/workspace/PF1/src/oop2/report.txt");
+				"questions.txt",
+				"report.txt");
 		survey.fillSurveyForm();
 	}
 }
