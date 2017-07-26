@@ -32,10 +32,13 @@ public class ReadQuestions {
 			for(int i=0; i < lines.length; i++) {	//loop to read lines from the file
 				lines[i] = reader.readLine();
 			}
-			reader.close();
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		finally{
+			reader.close();
 		}
 		
 		return lines;
@@ -44,12 +47,18 @@ public class ReadQuestions {
 	// method to count number of lines
 	private int numberOfLines() throws IOException {
 		int numberLines = 0;
+		try{
 		openFile();
-		
-		while(reader.readLine() != null) {	//loop to traverse through the files line by line
+		while(reader.readLine() != null) 	//loop to traverse through the files line by line
 			numberLines++;
 		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		finally{
 		reader.close();
+		}
 		return numberLines;
 	}
 }
