@@ -67,6 +67,8 @@ public class ProductPromotion {
 				}
 				return (productPromoObj[i].getDiscount() + " off on "+ productNameAndCode + "," + disc);
 			}
+			else
+				return ("Product not in promotion,0.00");
 		}
 		return null;
 	}
