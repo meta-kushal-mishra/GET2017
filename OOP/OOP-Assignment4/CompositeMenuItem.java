@@ -54,8 +54,7 @@ public class CompositeMenuItem extends Menu{
 			choice = scan.nextInt();
 			scan.nextLine();
 			} 
-			catch (Exception e) 
-			{
+			catch (Exception e) {
 				e.printStackTrace();
 			}
 			

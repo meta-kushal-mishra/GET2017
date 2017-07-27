@@ -2,25 +2,21 @@ package oopmain;
 
 public class Exit extends Menu {
 	private String Name ;
-	public Exit(String Name)
-	{
+	public Exit(String Name){
 		this.Name = Name;
 	}
 	@Override
-	public void actionTaken() 
-	{
+	public void actionTaken() {
 		System.exit(0);
 	}
 
 	@Override
-	public void setName(String Name) 
-	{
+	public void setName(String Name) {
 		this.Name = Name;
 	}
 
 	@Override
-	public String getName() 
-	{
+	public String getName() {
 		return Name;
 	} 
 

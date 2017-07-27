@@ -3,18 +3,15 @@ package oopmain;
 public class MenuAddMatrix extends Menu {
 	
 	String Name;
-	public MenuAddMatrix(String Name)
-	{
+	public MenuAddMatrix(String Name){
 		this.Name = Name ;
 	}
 	@Override
-	public void actionTaken() 
-	{
+	public void actionTaken() {
 		Matrix matrix = new Matrix();
 		int[][] firstMatrix ;
 		int[][] secondMatrix ;
-		do
-		{
+		do{
 			firstMatrix = matrix.createMatrix();
 			secondMatrix = matrix.createMatrix();
 			if((firstMatrix[0].length != secondMatrix[0].length) && (firstMatrix.length != secondMatrix.length))
@@ -23,22 +20,19 @@ public class MenuAddMatrix extends Menu {
 				break;
 		}while(true);
 		int[][] resultantMatrix = new int[firstMatrix.length][firstMatrix[0].length]; 
-		for(int i=0;i < firstMatrix.length ;++i)
-		{
+		for(int i=0;i < firstMatrix.length ;++i){
 			for(int j=0; j < secondMatrix[0].length;++j)
 				resultantMatrix[i][j] = firstMatrix[i][j] + secondMatrix[i][j];
 		}
 		matrix.display(resultantMatrix);
 	}
 	@Override
-	public void setName(String name) 
-	{
+	public void setName(String name) {
 		this.Name = name ; 
 	}
 
 	@Override
-	public String getName() 
-	{
+	public String getName() {
 		return Name;
 	}
 	

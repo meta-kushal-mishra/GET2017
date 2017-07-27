@@ -10,13 +10,11 @@ public class Matrix {
 	private Menu[] menuItems;
 	BufferedReader br;
 
-	public Matrix()
-	{
+	public Matrix(){
 		br = new BufferedReader(new InputStreamReader(System.in));
 		menuItems = new Menu[4];
 	}
-	public void createMenu() 
-	{
+	public void createMenu() {
 		//Creating the Menu items
 		menuItems[0] = new MenuAddMatrix("add");
 		menuItems[1] = new MenuMultiplyMatrix("multi");
@@ -30,50 +28,42 @@ public class Matrix {
 		scan.close();
 	}
 	
-	public void display(int[][] result)
-	{
-		for(int i=0;i < result.length ; ++i)
-		{
+	public void display(int[][] result){
+		for(int i=0;i < result.length ; ++i){
 			for(int j=0;j<result[0].length;++j)
 				System.out.print(result[i][j]+" ");
 			System.out.println();
 		}
 		
 	}
-	public int getPositiveIntegerInput(String inputMessage, boolean negative_allowed )
-	{
+	public int getPositiveIntegerInput(String inputMessage, boolean negative_allowed ){
 		int inputNumber;
-		try
-		{
+		try{
 			System.out.println(inputMessage);
 			inputNumber = Integer.parseInt(br.readLine());
 			if(inputNumber <= 0 && !negative_allowed)
 				inputNumber = getPositiveIntegerInput(inputMessage, negative_allowed);
 
 		}
-		catch(Exception ex)
-		{
+		catch(Exception ex){
 			System.out.println("invalid input: "+ex.getMessage());
 			inputNumber = getPositiveIntegerInput(inputMessage, negative_allowed);
 		}
 		return inputNumber;
 	}
 	
-	public int[][] createMatrix()
-	{
+	public int[][] createMatrix(){
 		Matrix matrix = new Matrix();
 		int numberOfRowsInMatrix = matrix.getPositiveIntegerInput("Please enter valid number " + "of rows in matrix", false);
 		int numberOfColumnsInMatrix = matrix.getPositiveIntegerInput("Please enter valid " + "number of columns in matrix", false);
 		int[][] matrixArray = new int[numberOfRowsInMatrix][numberOfColumnsInMatrix];
-		for(int i=0;i<numberOfRowsInMatrix;++i)
-		{
+		for(int i=0;i<numberOfRowsInMatrix;++i){
 			for(int j=0;j<numberOfColumnsInMatrix;++j)
 				matrixArray[i][j] = matrix.getPositiveIntegerInput("Please enter valid value at " + (i+1)+" th row and "+(j+1) + " th column in matrix", true);
 		}
 		return matrixArray;
 	}
-	public static void main(String args[])
-	{
+	public static void main(String args[]){
 		Matrix matrix = new Matrix();
 		matrix.createMenu();
 
