@@ -31,12 +31,14 @@ public class ProductPromotion {
 	// calculate product discount for all prod in cart
 	public void calculatePromotionDiscount(Cart[] cart, ProductPromotion[] productPromoObj, ArrayList<String> report) {
 		for (int i = 0, j = 0; i < cart.length; i++, j++) {
-			String[] temp = productPromoFun(cart[i].getCode(), productPromoObj).split(","); // gets promotion in which code is
-			report.add("Promotion :" + temp[0]);	// adds promotion to report
-			j = j + 1;
-			new Store().totalDiscount(cart[i].getQuantity()* Float.parseFloat(temp[1]));	// adds discount to total discount
-			report.add("Discount :" + cart[i].getQuantity()* Float.parseFloat(temp[1]));// add discount to report
-			
+			if(productPromoFun(cart[i].getCode(), productPromoObj).equals("Product not in promotion,0.00"));
+			else{
+				String[] temp = productPromoFun(cart[i].getCode(), productPromoObj).split(","); // gets promotion in which code is
+				report.add("Promotion :" + temp[0]);	// adds promotion to report
+				j = j + 1;
+				new Store().totalDiscount(cart[i].getQuantity()* Float.parseFloat(temp[1]));	// adds discount to total discount
+				report.add("Discount :" + cart[i].getQuantity()* Float.parseFloat(temp[1]));// add discount to report
+			}
 		report.add("\n");
 		}
 	}
@@ -65,11 +67,12 @@ public class ProductPromotion {
 				for (int j = 0; j < temp.length; j++) {
 					productNameAndCode += ""+ new Store().productName(temp[j]) + "[ code:"+ temp[j] + " ]";
 				}
-				return (productPromoObj[i].getDiscount() + " off on "+ productNameAndCode + "," + disc);
+				return productPromoObj[i].getDiscount() + " off on "+ productNameAndCode + "," + disc;
 			}
-			else
-				return ("Product not in promotion,0.00");
 		}
+		if(!productFound)
+			return "Product not in promotion,0.00";
+		
 		return null;
 	}
 }
