@@ -42,7 +42,7 @@ public class Matrix {
 			
 			System.out.println("4. exit");
 			
-			choice = matrix.getPositiveIntegerInput("Please enter your choice");
+			choice = matrix.getPositiveIntegerInput("Please enter your choice", false);
 			
 			
 			switch(choice){
@@ -100,10 +100,10 @@ public class Matrix {
 		Matrix matrix = new Matrix();
 		
 		int numberOfRowsInMatrix = matrix.getPositiveIntegerInput("Please enter valid number "
-				+ "of rows in matrix");
+				+ "of rows in matrix", false);
 		
 		int numberOfColumnsInMatrix = matrix.getPositiveIntegerInput("Please enter valid "
-				+ "number of columns in matrix");
+				+ "number of columns in matrix", false);
 		
 		int[][] matrixArray = new int[numberOfRowsInMatrix][numberOfColumnsInMatrix];
 		
@@ -111,8 +111,8 @@ public class Matrix {
 			
 			for(int j=0;j<numberOfColumnsInMatrix;++j){
 				
-				matrixArray[i][j] = matrix.getAnyIntegerInput("Please enter valid value at "
-						+ (i+1)+" th row and "+(j+1) + " th column in matrix");
+				matrixArray[i][j] = matrix.getPositiveIntegerInput("Please enter valid value at "
+						+ (i+1)+" th row and "+(j+1) + " th column in matrix", true);
 			}
 			
 		}
@@ -121,7 +121,7 @@ public class Matrix {
 	}
 	
 	
-	public int getPositiveIntegerInput(String inputMessage){
+	public int getPositiveIntegerInput(String inputMessage, boolean negative_allowed){
 		
 		
 		int inputNumber;
@@ -134,34 +134,14 @@ public class Matrix {
 			
 			if(inputNumber <= 0){
 				
-				inputNumber = getPositiveIntegerInput(inputMessage);
+				inputNumber = getPositiveIntegerInput(inputMessage, negative_allowed);
 			}
 			
 		}catch(Exception ex){
 			
 			System.out.println("invalid input: "+ex.getMessage());
 			
-			inputNumber = getPositiveIntegerInput(inputMessage);
-		}
-		
-		return inputNumber;
-	}
-	
-	
-	public int getAnyIntegerInput(String inputMessage){
-		
-		int inputNumber;
-		
-		try{
-			
-			System.out.println(inputMessage);
-			
-			inputNumber = Integer.parseInt(br.readLine());
-		}catch(Exception ex){
-			
-			System.out.println("invalid input: "+ex.getMessage());
-			
-			inputNumber = getAnyIntegerInput(inputMessage);
+			inputNumber = getPositiveIntegerInput(inputMessage, negative_allowed);
 		}
 		
 		return inputNumber;
