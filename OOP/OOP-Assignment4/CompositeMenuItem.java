@@ -45,6 +45,7 @@ public class CompositeMenuItem extends Menu{
 			for(int i=1; i <= menu.size(); i++) {
 				System.out.println(i+". "+menu.get(i-1).getName());
 			}
+			System.out.println("4. Exit");
 			
 			//Getting the menu choice from user
 			System.out.println("Enter choice :");
