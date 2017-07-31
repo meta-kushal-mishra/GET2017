@@ -2,8 +2,8 @@ package oopmain;
 
 public class MenuMultiplyMatrix extends Menu {
 	String Name;
-	public MenuMultiplyMatrix(String Name){
-		this.Name = Name ;
+	public MenuMultiplyMatrix(){
+		this.Name = "Multiplication" ;
 	}
 
 	@Override
