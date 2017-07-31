@@ -3,8 +3,8 @@ package oopmain;
 public class MenuAddMatrix extends Menu {
 	
 	String Name;
-	public MenuAddMatrix(String Name){
-		this.Name = Name ;
+	public MenuAddMatrix(){
+		this.Name = "Addition" ; ;
 	}
 	@Override
 	public void actionTaken() {
