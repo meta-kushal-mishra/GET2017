@@ -2,30 +2,19 @@ package oopmain;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class Matrix {
-	private Scanner scan;
-	private CompositeMenuItem mainMenu;		
-	private Menu[] menuItems;
+	
 	BufferedReader br;
+	CompositeMenuItem mainmenu;
 
 	public Matrix(){
 		br = new BufferedReader(new InputStreamReader(System.in));
-		menuItems = new Menu[4];
+		
 	}
 	public void createMenu() {
-		//Creating the Menu items
-		menuItems[0] = new MenuAddMatrix("add");
-		menuItems[1] = new MenuMultiplyMatrix("multi");
-		menuItems[2] = new MenuTransposeMatrix("tran");
-		menuItems[3] = new Exit("exit");
+		mainmenu = new CompositeMenuItem();
 		
-		//Adding the menu items
-		mainMenu = new CompositeMenuItem("Main Menu", menuItems);
-		//Display the main menu
-		mainMenu.actionTaken();
-		scan.close();
 	}
 	
 	public void display(int[][] result){
@@ -69,3 +58,4 @@ public class Matrix {
 
 	}
 }
+
