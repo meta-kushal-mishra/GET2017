@@ -4,7 +4,7 @@ public class MenuAddMatrix extends Menu {
 	
 	String Name;
 	public MenuAddMatrix(){
-		this.Name = "Addition" ; ;
+		this.Name = "Addition" ; 
 	}
 	@Override
 	public void actionTaken() {
