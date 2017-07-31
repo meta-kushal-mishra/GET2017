@@ -2,8 +2,8 @@ package oopmain;
 
 public class MenuTransposeMatrix extends Menu {
 	String Name;
-	public MenuTransposeMatrix(String Name){
-		this.Name = Name ;
+	public MenuTransposeMatrix(){
+		this.Name = "Transpose" ;
 	}
 	
 	@Override
