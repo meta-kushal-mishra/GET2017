@@ -6,23 +6,22 @@ import java.util.Scanner;
 public class CompositeMenuItem extends Menu{
 
 	private String menuName;	//Menu name
-	private List<Menu> menu;	//To store all the menu items for a composite menu
+	private List<Menu> menu;	
+	private Menu[] menuItems;//To store all the menu items for a composite menu
 	
 	public CompositeMenuItem() {
 		menu = new ArrayList<Menu>();
-	}
-	
-	public CompositeMenuItem(String name) {
-		this.menuName = name;
-		menu = new ArrayList<Menu>();
-	}
-	
-	public CompositeMenuItem(String name, Menu[] menuItems) {
-		this.menuName = name;
-		menu = new ArrayList<Menu>();
+		menuItems = new Menu[3];
+		menuItems[0] = new MenuAddMatrix();
+		menuItems[1] = new MenuMultiplyMatrix();
+		menuItems[2] = new MenuTransposeMatrix();
+		
+		this.menuName = "Main Menu";
 		for(int i=0; i < menuItems.length; i++) {
 			menu.add(menuItems[i]);
 		}
+		
+		actionTaken();
 	}
 	
 	@Override
@@ -38,7 +37,6 @@ public class CompositeMenuItem extends Menu{
 
 	@Override
 	public void actionTaken() {
-		// TODO Auto-generated method stub
 		int choice = 0;		//to get the menu choice from the user
 		Scanner scan = new Scanner(System.in);
 		do {
@@ -56,7 +54,9 @@ public class CompositeMenuItem extends Menu{
 			} 
 			catch (Exception e) {
 				e.printStackTrace();
+				scan.close();
 			}
+			
 			
 			//check if the menu number input is correct or not
 			if((choice < 1) || (choice > menu.size())) {
@@ -66,10 +66,13 @@ public class CompositeMenuItem extends Menu{
 			}
 			
 			//checking for the back condition
-			if(choice == menu.size()) {
+			if(choice > menu.size()) {
 				return;
 			}
 		} while(true);
+		
+		scan.close();
 	}
 
 }
+
