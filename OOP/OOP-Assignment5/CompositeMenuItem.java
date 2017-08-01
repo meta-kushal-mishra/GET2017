@@ -1,4 +1,4 @@
-package oop4;
+package oop5;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,6 +40,7 @@ public class CompositeMenuItem extends Menu{
 			for(int i=1; i <= menu.size(); i++) {
 				System.out.println(i+". "+menu.get(i-1).getName());
 			}
+			System.out.println(menu.size()+1 +". Exit");
 			
 			//Getting the menu choice from user
 			System.out.println("Enter choice :");
@@ -48,16 +49,21 @@ public class CompositeMenuItem extends Menu{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			if(choice == menu.size()+1) {
+				return;
+			}
 			
 			//check if the menu number input is correct or not
 			if((choice < 1) || (choice > menu.size())) {
+				System.out.println("Enter valid choice");
 				continue;
-			} else {
+			} 
+			else {
 				menu.get(choice-1).actionTaken(scan);
 			}
 			
 			//checking for the back condition
-			if(choice == menu.size()) {
+			if(choice == menu.size()+1) {
 				return;
 			}
 		} while(true);

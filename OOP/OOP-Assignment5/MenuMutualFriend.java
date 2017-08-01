@@ -1,4 +1,4 @@
-package oop4;
+package oop5;
 import java.util.Scanner;
 public class MenuMutualFriend extends CompositeMenuItem {
 
@@ -11,27 +11,32 @@ public class MenuMutualFriend extends CompositeMenuItem {
 	
 	//@Override
 	public void actionTaken(Scanner scan) {
-		Node requester;
-		Node query;
+		Node requester, query;
 		
-		System.out.println("Enter profile name of requester");
-		//Checking if the requesting node exist
-		if((requester = graph.getNode(scan.nextLine())) == null) {
-			System.out.println("No such entity is present");
-			return;
-		}
+		do{
+			System.out.println("Enter profile name of requester");
+			//Checking if the requesting node exist
+			if((requester = graph.getNode(scan.nextLine())) != null) 
+				break;
+			else
+				System.out.println("No such entity is present");
+		}while(true);
 		
-		System.out.println("Enter the profile name to search mutual friends with");
-		//Checking if the node queried for exist
-		if((query = graph.getNode(scan.nextLine())) == null) {
-			System.out.println("No such entity is present");
-			return;
-		}
+
+		do{
+			System.out.println("Enter the profile name to search mutual friends with");
+			//Checking if the node queried for exist
+			if((query = graph.getNode(scan.nextLine())) != null) 
+				break;
+			else
+				System.out.println("No such entity is present");
+		}while(true);
+		
 		
 		System.out.println("Mutual friends are :");
-		//Loop to iterate over all the neighbours of the requesting node
+		//Loop to iterate over all the neighbors of the requesting node
 		for (Node n : requester.getNeighbours()) {
-			//Checking if the neighbour node is also a neighbour of the queried node
+			//Checking if the neighbor node is also a neighbor of the queried node
 			if(query.isFriend(n)) {
 				System.out.println(n.getName()+" ");
 			}

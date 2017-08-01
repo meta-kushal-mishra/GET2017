@@ -1,4 +1,4 @@
-package oop4;
+package oop5;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -16,22 +16,26 @@ public class MenuIsConnection extends CompositeMenuItem {
 	
 	@Override
 	public void actionTaken(Scanner scan) {
-		Node requester;
-		Node query;
+		Node requester,query;
 		
-		System.out.println("Enter profile name of requester");
-		//Checking if the requesting node exist
-		if((requester = graph.getNode(scan.nextLine())) == null) {
-			System.out.println("No such entity is present");
-			return;
-		}
+		do{
+			System.out.println("Enter profile name of requester");
+			//Checking if the requesting node exist
+			if((requester = graph.getNode(scan.nextLine())) != null) 
+				break;
+			else
+				System.out.println("No such entity is present");
+		}while(true);
 		
-		System.out.println("Enter the profile name to search connection with");
-		//Checking if the node queried for exist
-		if((query = graph.getNode(scan.nextLine())) == null) {
-			System.out.println("No such entity is present");
-			return;
-		}
+		do{
+			System.out.println("Enter the profile name to search connection with");
+			//Checking if the node queried for exist
+			if((query = graph.getNode(scan.nextLine())) != null) 
+				break;
+			else
+				System.out.println("No such entity is present");
+		}while(true);
+		
 		//Checking if there is any connection between the two nodes
 		if(!search(requester,query)) {
 			System.out.println("There is no connection between them");
@@ -43,7 +47,7 @@ public class MenuIsConnection extends CompositeMenuItem {
 	
 	public boolean search(Node requester, Node query) {
 		boolean result = false;
-		//Check if the queried node is a direct neighbour of requester
+		//Check if the queried node is a direct neighbor of requester
 		if(requester.isFriend(query)) {
 			System.out.print(query.getName());
 			return true;
@@ -52,11 +56,11 @@ public class MenuIsConnection extends CompositeMenuItem {
 		//Adding the node whose immediate neighbour is checked for the queried node
 		bfs.add(requester);
 		for(Node n : requester.getNeighbours()) {
-			//Check if the neighbour node is already traversed to avoid cycle
+			//Check if the neighbor node is already traversed to avoid cycle
 			if(bfs.contains(n)) {
 				continue;
 			}
-			//Performing the search on the neighbour node
+			//Performing the search on the neighbor node
 			result = search(n, query);
 			if(result) {
 				System.out.print(" <- "+n.getName());

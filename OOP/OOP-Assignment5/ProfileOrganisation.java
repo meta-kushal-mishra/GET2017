@@ -1,4 +1,4 @@
-package oop4;
+package oop5;
 
 public class ProfileOrganisation extends Profile{
 	
@@ -14,37 +14,31 @@ public class ProfileOrganisation extends Profile{
 	
 	@Override
 	public void setName(String name) {
-		// TODO Auto-generated method stub
 		this.name = name;
 	}
 	
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return name;
 	}
 	
 	@Override
 	public void setPlace(String place) {
-		// TODO Auto-generated method stub
 		this.place = place;
 	}
 	
 	@Override
 	public String getPlace() {
-		// TODO Auto-generated method stub
 		return place;
 	}
 	
 	@Override
 	public void setType(String type) {
-		// TODO Auto-generated method stub
 		this.type = type;
 	}
 
 	@Override
 	public String getType() {
-		// TODO Auto-generated method stub
 		return type;
 	}
 

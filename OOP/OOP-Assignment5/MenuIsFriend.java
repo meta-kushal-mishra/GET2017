@@ -1,4 +1,4 @@
-package oop4;
+package oop5;
 
 import java.util.Scanner;
 
@@ -13,22 +13,25 @@ public class MenuIsFriend extends CompositeMenuItem{
 	
 	@Override
 	public void actionTaken(Scanner scan) {
-		Node query;
-		Node requester;
+		Node query,requester;
 		
-		System.out.println("\nEnter the profile name for requester");
-		//Checking if the requesting node exist
-		if((requester = graph.getNode(scan.nextLine())) == null) {
-			System.out.println("No such entity is present");
-			return;
-		}
+		do{
+			System.out.println("Enter profile name of requester");
+			//Checking if the requesting node exist
+			if((requester = graph.getNode(scan.nextLine())) != null) 
+				break;
+			else
+				System.out.println("No such entity is present");
+		}while(true);
 		
-		System.out.println("Enter the profile name to search as a friend");
-		//Checking if the node queried for exist
-		if((query = graph.getNode(scan.nextLine())) == null) {
-			System.out.println("No such entity is present");
-			return;
-		}
+		do{
+			System.out.println("Enter the profile name to search as a friend");
+			//Checking if the node queried for exist
+			if((query = graph.getNode(scan.nextLine())) != null) 
+				break;
+			else
+				System.out.println("No such entity is present");
+		}while(true);
 		
 		//Checking if the queried node is a friend for the requester node
 		if(requester.isFriend(query)) {

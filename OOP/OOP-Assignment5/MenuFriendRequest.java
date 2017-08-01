@@ -1,4 +1,4 @@
-package oop4;
+package oop5;
 
 import java.util.Scanner;
 
@@ -14,23 +14,26 @@ public class MenuFriendRequest extends CompositeMenuItem {
 	
 	@Override
 	public void actionTaken(Scanner scan) {
-		Node requester;
-		Node query;
+		Node requester,query;
 		int choice = 0;
 		
-		System.out.println("Enter profile name of requester");
-		//Checking if the requesting node exist
-		if((requester = graph.getNode(scan.nextLine())) == null) {
-			System.out.println("No such entity is present");
-			return;
-		}
+		do{
+			System.out.println("Enter profile name of requester");
+			//Checking if the requesting node exist
+			if((requester = graph.getNode(scan.nextLine())) != null) 
+				break;
+			else
+				System.out.println("No such entity is present");
+		}while(true);
 		
-		System.out.println("Enter the profile name to send a friend request");
-		//Checking if the node queried for exist
-		if((query = graph.getNode(scan.nextLine())) == null) {
-			System.out.println("No such entity is present");
-			return;
-		}
+		do{
+			System.out.println("Enter the profile name to send a friend request");
+			//Checking if the node queried for exist
+			if((query = graph.getNode(scan.nextLine())) != null) 
+				break;
+			else
+				System.out.println("No such entity is present");
+		}while(true);
 		
 		//Checking if the queried node has already blocked the requester node or not
 		if(query.isBlockedNode(requester)) {
@@ -49,7 +52,6 @@ public class MenuFriendRequest extends CompositeMenuItem {
 				choice = scan.nextInt();
 				scan.nextLine();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		} while ((choice != 1) && (choice != 2) && (choice !=3));
@@ -57,7 +59,7 @@ public class MenuFriendRequest extends CompositeMenuItem {
 		//Action taken based on user choice
 		switch (choice) {
 		case 1: 
-			//Updating the neighbour list for both the nodes upon accepting
+			//Updating the neighbor list for both the nodes upon accepting
 			requester.addNeighbour(query);
 			query.addNeighbour(requester);
 			System.out.println("Friend request of "+requester.getName()+" is accepted by "+query.getName());

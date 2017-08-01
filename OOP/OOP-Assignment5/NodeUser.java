@@ -1,4 +1,4 @@
-package oop4;
+package oop5;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,37 +22,31 @@ public class NodeUser extends Node{
 	
 	@Override
 	public void setName(String name) {
-		// TODO Auto-generated method stub
 		profile.setName(name);
 	}
 	
 	@Override
 	public String getPlace() {
-		// TODO Auto-generated method stub
 		return profile.getPlace();
 	}
 	
 	@Override
 	public void setPlace(String place) {
-		// TODO Auto-generated method stub
 		profile.setPlace(place);
 	}
 	
 	@Override
 	public String getType() {
-		// TODO Auto-generated method stub
 		return profile.getType();
 	}
 
 	@Override
 	public void setType(String type) {
-		// TODO Auto-generated method stub
 		profile.setType(type);
 	}
 
 	@Override
 	public void addNeighbour(Node conn) {
-		// TODO Auto-generated method stub
 		if(!neighbour.contains(conn)) {
 			neighbour.add(conn);
 		}
@@ -60,7 +54,6 @@ public class NodeUser extends Node{
 	
 	@Override
 	public boolean removeNeighbour(Node remove) {
-		// TODO Auto-generated method stub
 		if(neighbour.contains(remove)) {
 			neighbour.remove(remove);
 			return true;
@@ -70,7 +63,6 @@ public class NodeUser extends Node{
 
 	@Override
 	public void displayNeighbour() {
-		// TODO Auto-generated method stub
 		for(int i=0; i < neighbour.size(); i++) {
 			System.out.print(neighbour.get(i).getName()+" ");
 		}
@@ -83,7 +75,6 @@ public class NodeUser extends Node{
 
 	@Override
 	public boolean isFriend(Node query) {
-		// TODO Auto-generated method stub
 		if(neighbour.contains(query)) {
 			return true;
 		}
@@ -92,13 +83,11 @@ public class NodeUser extends Node{
 
 	@Override
 	public List<Node> getNeighbours() {
-		// TODO Auto-generated method stub
 		return neighbour;
 	}
 	
 	@Override
 	public boolean blockNode(Node node) {
-		// TODO Auto-generated method stub
 		if(!blocked.contains(node)) {
 			blocked.add(node);
 			return true;
@@ -108,7 +97,6 @@ public class NodeUser extends Node{
 
 	@Override
 	public boolean isBlockedNode(Node node) {
-		// TODO Auto-generated method stub
 		if(blocked.contains(node)) {
 			return true;
 		}
@@ -126,7 +114,6 @@ public class NodeUser extends Node{
 				return false;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return false;
