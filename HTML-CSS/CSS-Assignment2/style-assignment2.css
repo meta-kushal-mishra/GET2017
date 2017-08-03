@@ -163,6 +163,7 @@
 }
 
 #signup-form {
+	font-weight: bold;
 	width: 38%;
 	padding: 10px;
 	float: left;
@@ -170,12 +171,14 @@
 	margin-left: 10px;
 }
 
-#signup-form label {
-	font-weight: bold;
-	padding: 10px;
+
+
+#signup-form table{
+	float: left;
+	width: 100%;
 }
 
-#signup-form input {
+#signup-form table input {
 	padding: 5px;
 	margin: 10px;
 	width: 80%;
@@ -186,6 +189,7 @@
 	width: initial;
 	color: white;
 	background-color: #318dd6;
+	float: left;
 	padding: 10px 20px;
 	border-radius: 8px;
 }
