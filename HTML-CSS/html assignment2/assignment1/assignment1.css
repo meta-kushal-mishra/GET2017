@@ -61,10 +61,6 @@ section{
 	padding-right:8px;
 	padding-top:7px;
 	padding-bottom:6px;
-	border-style:solid;
-	border-color:green;
-	border-width:2px;
-	border-right-style:none;
 	
 }
 .imageOfDescription{
@@ -77,9 +73,6 @@ section{
 	padding-right:8px;
 	padding-top:16px;
 	padding-bottom:16px;
-	border:solid;
-	border-width:2px;
-	border-right-style:none;
 	border-radius:5px 0px 0px 5px;
 	border-color:green;
 }
@@ -104,10 +97,6 @@ section{
 .textfield{
 	padding:6.5px;
 	width:70%;
-	border-style:solid;
-	border-color:green;
-	border-width:2px;
-	border-left-style:none;
 	margin-bottom:1%;
 	
 }
@@ -115,9 +104,6 @@ textarea{
 	padding:9.5px;
 	width:21%;
 	height:52px;
-	border-style:solid;
-	border-color:green;
-	border-width:2px;
 	border-left-style: none;
 
 	
@@ -130,4 +116,3 @@ input:invalid {
 #selecttext{
 	max-height:33px;
 	width:70%;
-}
