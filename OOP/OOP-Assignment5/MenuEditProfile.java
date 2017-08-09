@@ -16,15 +16,16 @@ public class MenuEditProfile extends CompositeMenuItem {
 	public void actionTaken(Scanner scan) {
 		String name;
 		Node node;
+		boolean flag = true;
 		
 		do{
 		//Getting the name of the node to edit
 		System.out.println("\nEnter the profile name");
 		name = scan.nextLine();
 		if((node = graph.getNode(name)) != null)
-			break;
+			flag = false;
 	
-		}while(true);
+		}while(flag);
 		
 		//Editing the name attribute for the node
 		System.out.println("Enter new name");

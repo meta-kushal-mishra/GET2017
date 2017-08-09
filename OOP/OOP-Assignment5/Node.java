@@ -2,7 +2,7 @@ package oop5;
 
 import java.util.List;
 
-public abstract class Node {
+interface Node {
 
 	public abstract String getName();
 	public abstract void setName(String name);

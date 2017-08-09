@@ -29,11 +29,7 @@ public class ReadNetwork {
 				temp = path.split(" ");
 				
 				//Setting the information contained in the file according to the type of node
-				if(temp[2].equalsIgnoreCase("user")) {
-					node = new NodeUser(temp[0], temp[1], temp[2]);
-				} else {
-					node = new NodeOrganisation(temp[0], temp[1], temp[2]);
-				}
+				node = new NodeUser(temp[0], temp[1], temp[2]);
 				//Adding the node created to the graph
 				graph.addNode(node);
 			}

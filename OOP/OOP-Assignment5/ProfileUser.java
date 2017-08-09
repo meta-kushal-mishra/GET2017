@@ -1,6 +1,6 @@
 package oop5;
 
-public class ProfileUser extends Profile{
+public class ProfileUser implements Profile{
 
 	private String name;	//The name attribute for the node
 	private String place;	//The place attribute for the node

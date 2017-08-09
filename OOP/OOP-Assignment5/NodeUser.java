@@ -3,7 +3,7 @@ package oop5;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NodeUser extends Node{
+public class NodeUser implements Node{
 	
 	private ProfileUser profile;	//The attributes for the organisation node
 	private List<Node> neighbour; 		//The list of all the immediate neighbours of the node

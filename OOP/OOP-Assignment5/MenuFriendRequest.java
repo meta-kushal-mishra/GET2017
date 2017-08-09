@@ -16,24 +16,26 @@ public class MenuFriendRequest extends CompositeMenuItem {
 	public void actionTaken(Scanner scan) {
 		Node requester,query;
 		int choice = 0;
+		boolean flag = true;
 		
 		do{
 			System.out.println("Enter profile name of requester");
 			//Checking if the requesting node exist
 			if((requester = graph.getNode(scan.nextLine())) != null) 
-				break;
+				flag = false;
 			else
 				System.out.println("No such entity is present");
-		}while(true);
+		}while(flag);
 		
+		flag = true;
 		do{
 			System.out.println("Enter the profile name to send a friend request");
 			//Checking if the node queried for exist
 			if((query = graph.getNode(scan.nextLine())) != null) 
-				break;
+				flag = false;
 			else
 				System.out.println("No such entity is present");
-		}while(true);
+		}while(flag);
 		
 		//Checking if the queried node has already blocked the requester node or not
 		if(query.isBlockedNode(requester)) {
