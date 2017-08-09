@@ -3,6 +3,19 @@
 <head>
 	<title>Assignment 2</title>
 	<script src="myScript.js"></script>
+	<style type="text/css">
+		#message{
+			padding-right : 12px;
+		}
+
+		#select{
+			padding-right: 73px;
+		}
+		#submit{
+			margin-left: 20px;
+		}
+	</style>
+	</head>
 <body>
 
 	<table width="80%" align="center">
@@ -15,7 +28,7 @@
 				<a href="#">News</a>
 				<a href="#">Popular</a>
 				<a href="#">Sales</a>
-				<a onclick ="redirectToContact()" href="#">Contact</a>
+				<a href="#">Contact</a>
 			</td>
 		</tr>
 	</table>
@@ -59,7 +72,10 @@
 						<option>Bikaner</option>
 						<option>Alwar</option>
 					</select>
-					<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
 					<span id="City" style="visibility:hidden">
 						Your City :
 					</span>
@@ -67,10 +83,8 @@
 				<td>
 					<input type="text" name="textField" id="textField"  style="visibility:hidden" readonly>
 				</td>
-				</td>
 			</tr>
-			<tr>
-			</tr>
+			
 			<tr>
 				<td width="15">
 					Organisation Name :
@@ -92,13 +106,15 @@
 					Message :
 				</td>
 				<td>
-					<textarea rows="3" id="message"></textarea>
+					<textarea rows="3" id="message" padding-right="50px"></textarea>
 				</td>
 			</tr>
 			<tr>
+			<td></td>
 				<td >
 					<button  type="submit" value="Submit"  >Submit</button>
 				</td>
+				<td></td>
 			</tr>
 		</table>
 	</form>

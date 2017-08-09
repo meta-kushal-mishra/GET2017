@@ -13,43 +13,59 @@ function validateForm()
 
  	if (!namepattern.test(x.value) || x.value=="")
  	{
+    if(x.value=="")
+      alert("Name is required. Please enter your name");
+    else
     	alert("name should contain only alphabets.");
- 		x.value="";
-  		x.focus();
-  		return false;
+  	x.focus();
+  	return false;
  	}
+
  	var emailpattern = /\S+@\S+\.\S+/ ;
 	x=document.getElementById("email");
- 	if(!emailpattern.test(x.value))
- 	{
+ 	if(!emailpattern.test(x.value) || x.value=="")
+  {
+    if(x.value=="")
+      alert("Email is required. Please enter your email");
+    else
   		alert("Invalid email id.");
-  		x.value="";
   		x.focus();
   		return false;
  	}
- 	validateSelect();
+
+ if(!validateSelect())
+    return false;
+
  	var phoneno = /^\d{10}$/;
  	x=document.getElementById("contact");
- 	if(!phoneno.test(x.value))
- 	{
+ 	if(!phoneno.test(x.value) || x.value=="")
+  {
+    if(x.value=="")
+      alert("Phone No. is required. Please enter your phone number");
+    else
  		alert("Invalid no .");
-  		x.value="";
   		x.focus();
+      return false;
  	}
+
  	var orgReg = /[a-zA-Z]/;
  	x=document.getElementById("orgName");
  	if(!orgReg.test(x.value) || x.value=="")
  	{
- 		alert("Invalid orgName ");
-  		x.value="";
+    if(x.value==""){
+      alert("Enter Org name");
+    }
+    else
+ 		   alert("Invalid orgName ");
   		x.focus();
+      return false;
  	}
  	var message = document.getElementById("Message");
- 	if(!message.value == "" || message.length > 250)
+ 	if(message.length > 250)
  	{
  		alert("Invalid message");
-  		x.value="";
   		x.focus();
+      return false;
  	}
  }
  function validateSelect()
@@ -59,6 +75,7 @@ function validateForm()
  	{
     	alert("Please make a selection");
         x.focus();
+        return false;
     }
     else
     {
@@ -66,5 +83,7 @@ function validateForm()
     	y.defaultValue = x.value;
     	document.getElementById('textField').style.visibility='visible';
 		document.getElementById('City').style.visibility='visible';
+    return true;
     }
+
  }
