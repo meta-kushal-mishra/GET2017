@@ -7,17 +7,17 @@ var stack = new MyStack();
 
  function MyStack(){
 		this.top=null;
-		var temp,data;
+		var temp, data, node;
 		var pattern = /^[A-Za-z0-9]+$/;
 	
 	MyStack.prototype.pushItem = function(){
 		data = document.getElementById("push").value;
 		document.getElementById("push").value = "";
 		if(data.match(pattern)){
-		var node = new Node(data);
-		node.prev = this.top;
-		this.top=node;
-		document.getElementById("spanPush").innerHTML = "Element pushed to stack";
+			node = new Node(data);
+			node.prev = this.top;
+			this.top=node;
+			document.getElementById("spanPush").innerHTML = "Element pushed to stack";
 		}
 		else{
 			document.getElementById("spanPush").innerHTML = "Enter valid text to push";

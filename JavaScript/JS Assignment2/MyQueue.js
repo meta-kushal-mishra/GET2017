@@ -9,52 +9,53 @@ function Queues(){
 	this.first = null;
     var pattern = /^[A-Za-z0-9]+$/;
 	
-Queues.prototype.getQueue = function(){
-	document.getElementById("queue").innerHTML = "";
-	temp=this.first;
-	if(!temp){
-		document.getElementById("queue").innerHTML = "Queue is empty";
-	}
-	else{
-		while(temp!=null){
+	Queues.prototype.getQueue = function(){
+		document.getElementById("queue").innerHTML = "";
+		temp=this.first;
+		if(!temp){
+			document.getElementById("queue").innerHTML = "Queue is empty";
+		}
+		else{
+			while(temp!=null){
 				document.getElementById("queue").innerHTML += temp.data + " "; 
 				temp=temp.next;
+			}
 		}
 	}
-}
 
-Queues.prototype.enqueue = function(){
-	var input = document.getElementById("enq").value;
-	if(input.match(pattern)){
-	var node= new Node(input);
-	document.getElementById("enq").value="";
-	if(!this.first){
-		this.first=node;
-		document.getElementById("spanEnqueue").innerHTML = "Element added to queue";
-	}
-	else{
-		var temp=this.first; 
-		while(temp.next){
-			temp=temp.next;
+	Queues.prototype.enqueue = function(){
+		var input = document.getElementById("enq").value;
+		var node, temp;
+		if(input.match(pattern)){
+			node= new Node(input);
+			document.getElementById("enq").value="";
+			if(!this.first){
+				this.first=node;
+				document.getElementById("spanEnqueue").innerHTML = "Element added to queue";
+			}
+			else{
+				temp=this.first; 
+				while(temp.next){
+					temp=temp.next;
+				}
+				temp.next=node;
+				document.getElementById("spanEnqueue").innerHTML = "Element added to queue";
+			}
 		}
-		temp.next=node;
-		document.getElementById("spanEnqueue").innerHTML = "Element added to queue";
+		else{
+			document.getElementById("spanEnqueue").innerHTML = "Enter valid text to enqueue";
+		}
 	}
-	}
-	else{
-		document.getElementById("spanEnqueue").innerHTML = "Enter valid text to enqueue";
-	}
-}
 
-Queues.prototype.dequeue = function(){
-	if(this.first){
-		document.getElementById("spanDeque").innerHTML = this.first.data;
-		this.first=this.first.next;
+	Queues.prototype.dequeue = function(){
+		if(this.first){
+			document.getElementById("spanDeque").innerHTML = this.first.data;
+			this.first=this.first.next;
+		}
+		else{
+			document.getElementById("spanDeque").innerHTML = "There are no elements in the queue";	
+		}
 	}
-	else{
-		document.getElementById("spanDeque").innerHTML = "There are no elements in the queue";	
-	}
-}
 
 }
 function enqueueVal(){
