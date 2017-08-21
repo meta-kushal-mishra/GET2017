@@ -1,5 +1,8 @@
 
- setTimeout(  function(){ var d= new Date();
-							postMessage(d); }  , 3000);
+setTimeout(
+  	function(){ 
+  		var d= new Date();
+		postMessage(d);
+	}, 3000);
 
 
