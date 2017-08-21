@@ -94,14 +94,15 @@ function Node(data){
 		document.getElementById("search").value="";
 		var count=1,flag=true;
 		if(val.match(pattern)){
-			while(this.temp!=null){
+			while(this.temp!=null && flag){
 				if(this.temp.data == val){
 					document.getElementById("spanSearch").innerHTML = "Element is present at index " + count; 
 					flag=false;
-					break;
 				}
-				count++;
-				this.temp = this.temp.next;
+				if(flag){
+					count++;
+					this.temp = this.temp.next;
+				}
 			}
 			if(flag){
 				document.getElementById("spanSearch").innerHTML = "Element is not present in the list";
