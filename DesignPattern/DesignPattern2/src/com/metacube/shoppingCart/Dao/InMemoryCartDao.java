@@ -6,7 +6,7 @@ import java.util.Map;
 import com.metacube.shoppingCart.Entity.BaseEntity;
 import com.metacube.shoppingCart.Entity.CartProduct;
 
-public class InMemoryCartDao implements CartDao {
+public class InMemoryCartDao implements ICartDao {
 	private static InMemoryCartDao cartDao;
 	private static Map<Integer, BaseEntity> cartItems;
 	private InMemoryCartDao() {

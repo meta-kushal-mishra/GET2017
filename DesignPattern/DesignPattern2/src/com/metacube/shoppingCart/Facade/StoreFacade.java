@@ -2,21 +2,21 @@ package com.metacube.shoppingCart.Facade;
 
 import java.util.Set;
 
-import com.metacube.shoppingCart.Dao.BaseDao;
+import com.metacube.shoppingCart.Dao.IBaseDao;
 import com.metacube.shoppingCart.Entity.Product;
 import com.metacube.shoppingCart.Enum.DBType;
 import com.metacube.shoppingCart.Enum.Entity;
 import com.metacube.shoppingCart.Factory.DaoFactory;
 
 public class StoreFacade {
-	private BaseDao productList;
+	private IBaseDao productList;
 	private static StoreFacade storeFacade;
 
 	/**
 	 * private constructor of StoreFacade class initializing the productList
 	 */
 	private StoreFacade() {
-		productList = DaoFactory.getBaseDaoForEntity(Entity.Product, DBType.Inmemory);
+		productList = DaoFactory.getIBaseDaoForEntity(Entity.Product, DBType.Inmemory);
 	}
 
 	/**

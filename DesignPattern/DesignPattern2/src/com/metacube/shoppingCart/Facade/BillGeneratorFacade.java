@@ -15,7 +15,7 @@ public class BillGeneratorFacade {
 	private static BillGeneratorFacade billGeneratorFacade;
 	private static HashMap<Integer, BaseEntity> cartList;
 	private BillGeneratorFacade(){
-		cartList = (HashMap<Integer, BaseEntity>) DaoFactory.getBaseDaoForEntity(Entity.Cart, DBType.Inmemory).getList();
+		cartList = (HashMap<Integer, BaseEntity>) DaoFactory.getIBaseDaoForEntity(Entity.Cart, DBType.Inmemory).getList();
 	}
 	public static BillGeneratorFacade getInstance() {
 		if (billGeneratorFacade == null) {
@@ -38,7 +38,7 @@ public class BillGeneratorFacade {
 		Set<Integer> productId = cartList.keySet();
 		for (int id : productId) {
 			product = (CartProduct) DaoFactory
-					.getBaseDaoForEntity(Entity.Cart, DBType.Inmemory)
+					.getIBaseDaoForEntity(Entity.Cart, DBType.Inmemory)
 					.getList().get(id);
 			output += "\nProduct : " + product.getId() + " - "
 					+ product.getProductName() + "(" + product.getType()

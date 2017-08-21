@@ -10,7 +10,7 @@ import util.FileHandling;
 import com.metacube.shoppingCart.Entity.BaseEntity;
 import com.metacube.shoppingCart.Entity.Product;
 
-public class InMemoryProductStoreDao implements ProductStoreDao {
+public class InMemoryProductStoreDao implements IProductStoreDao {
 	private static Map<Integer, BaseEntity> productList;
 	private static InMemoryProductStoreDao productDao;
 

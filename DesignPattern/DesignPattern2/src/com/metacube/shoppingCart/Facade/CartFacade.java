@@ -11,7 +11,7 @@ import com.metacube.shoppingCart.Enum.Status;
 import com.metacube.shoppingCart.Factory.DaoFactory;
 
 public class CartFacade {
-	private static InMemoryCartDao cartItems = (InMemoryCartDao) DaoFactory.getBaseDaoForEntity(Entity.Cart, DBType.Inmemory);
+	private static InMemoryCartDao cartItems = (InMemoryCartDao) DaoFactory.getIBaseDaoForEntity(Entity.Cart, DBType.Inmemory);
 	private Status status;
 	private static CartFacade cartFacade;
 
@@ -43,7 +43,7 @@ public class CartFacade {
 	}
 
 	/**
-	 * Adding product to cart by its product ID
+	 * Adding product to cart by its product IDl
 	 * 
 	 * @param productId
 	 *            - product ID
@@ -51,7 +51,7 @@ public class CartFacade {
 	 *            - quantity of product
 	 */
 	public Status addProductToCartByProductId(int productId, int quantity) {
-		cartItems = (InMemoryCartDao) DaoFactory.getBaseDaoForEntity(Entity.Cart, DBType.Inmemory);
+		cartItems = (InMemoryCartDao) DaoFactory.getIBaseDaoForEntity(Entity.Cart, DBType.Inmemory);
 		// if product already present in cart
 		if (isProductPresentInCart(productId)) {
 			CartProduct product = (CartProduct) cartItems.getList().get(productId);
@@ -59,7 +59,7 @@ public class CartFacade {
 			status = Status.Updated;
 		} 
 		else {
-			Product productDetails = (Product) DaoFactory.getBaseDaoForEntity(Entity.Product, DBType.Inmemory).getList().get(productId);
+			Product productDetails = (Product) DaoFactory.getIBaseDaoForEntity(Entity.Product, DBType.Inmemory).getList().get(productId);
 			String[] details = { String.valueOf(productDetails.getId()), productDetails.getProductName(), String.valueOf(productDetails.getProductPrice()), productDetails.getType() };
 			CartProduct cartProduct = new CartProduct(details);
 			cartProduct.setQuantity(quantity);

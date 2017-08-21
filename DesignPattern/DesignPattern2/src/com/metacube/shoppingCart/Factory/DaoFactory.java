@@ -1,6 +1,6 @@
 package com.metacube.shoppingCart.Factory;
 
-import com.metacube.shoppingCart.Dao.BaseDao;
+import com.metacube.shoppingCart.Dao.IBaseDao;
 import com.metacube.shoppingCart.Dao.InMemoryCartDao;
 import com.metacube.shoppingCart.Dao.InMemoryProductStoreDao;
 import com.metacube.shoppingCart.Enum.DBType;
@@ -8,7 +8,7 @@ import com.metacube.shoppingCart.Enum.Entity;
 
 public class DaoFactory{
 
-	public static BaseDao<?> getBaseDaoForEntity(Entity entityName, DBType dbType) {
+	public static IBaseDao<?> getIBaseDaoForEntity(Entity entityName, DBType dbType) {
 		switch (entityName) {
 			case Product:
 			switch (dbType) {
