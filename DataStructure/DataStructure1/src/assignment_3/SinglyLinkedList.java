@@ -16,7 +16,7 @@ public class SinglyLinkedList<E> {
 		
 	}
 
-	public boolean add(E item){
+	public E add(E item){
 
 		Node<E> newNode = new Node<E>(item);
 
@@ -45,10 +45,10 @@ public class SinglyLinkedList<E> {
 
 		size++;
 
-		return true;
+		return (E)newNode.nodeValue;
 	}
 
-	public boolean add(int location, E item){
+	public E add(int location, E item){
 
 		// creating a new node to add and initializing its constructor with item
 		Node<E> newNode = new Node<E>(item) ; 
@@ -92,11 +92,12 @@ public class SinglyLinkedList<E> {
 
 		size++;
 
-		return true;	
+		return (E)newNode.nodeValue;	
 	}
 
 	public boolean remove(E value){
 
+		boolean flag = false;
 		// if mergedList is empty
 		if(startNode == null){
 
@@ -123,6 +124,7 @@ public class SinglyLinkedList<E> {
 				tempCurrentNode = null;
 
 				tempPrevNode = null;
+				flag = true;
 
 			}
 
@@ -131,17 +133,19 @@ public class SinglyLinkedList<E> {
 				tempPrevNode.nextNode = tempCurrentNode.nextNode;
 
 				tempCurrentNode = null;
+				flag = true;
 			}
 		}
 
 		size--;
 
-		return true;
+		return flag;
 
 	}
 
 	public boolean remove(int index){
 
+		boolean flag = false;
 		// temporary previous node
 		Node<E> tempPrevNode = startNode;
 
@@ -159,8 +163,8 @@ public class SinglyLinkedList<E> {
 			startNode = tempNextNode.nextNode;
 
 			tempNextNode = null;
-
 			tempPrevNode = null;
+			flag = true;
 		}
 
 		else{
@@ -182,11 +186,12 @@ public class SinglyLinkedList<E> {
 
 			// set next node to null
 			tempNextNode = null;
+			flag = true;
 		}
 
 		size--;
 
-		return true;
+		return flag;
 
 	}
 

@@ -16,7 +16,7 @@ public class DoublyLinkedList<E> {
 
 	}
 
-	public boolean add(int index, E item){
+	public E add(int index, E item){
 
 		Node<E> newNode = new Node<E>(item) ; 
 
@@ -97,10 +97,12 @@ public class DoublyLinkedList<E> {
 
 		size++;
 
-		return true;	
+		return (E)newNode.nodeValue;	
 	}
 	
 	public boolean remove(E value){
+		
+		boolean flag = false;
 
 		if(startNode == null){
 
@@ -136,35 +138,36 @@ public class DoublyLinkedList<E> {
 				tempNextNode = null;
 
 				tempPrevNode = null;
+				flag = true;
 
 			}
 
 			else if(tempNextNode.nextNode == null){
 
 				tempPrevNode.nextNode = null;
-
 				tempNextNode = null;
+				flag = true;
 			}
 
 			else{
 
 				tempPrevNode.nextNode = tempNextNode.nextNode;
-
 				tempNextNode.nextNode.prevNode = tempPrevNode;
+				flag = true;
 
 			}
 		}
 
 		size--;
 
-		return true;
+		return flag;
 
 	}
 
 	public boolean remove(int index){
 
+		boolean flag = false;
 		Node<E> tempPrevNode ;
-
 		Node<E> tempNextNode ;
 
 		if(startNode == null){
@@ -190,6 +193,7 @@ public class DoublyLinkedList<E> {
 			tempNextNode = null;
 
 			tempPrevNode = null;
+			flag = true;
 		}
 
 
@@ -223,11 +227,13 @@ public class DoublyLinkedList<E> {
 
 				tempNextNode.nextNode.prevNode = tempPrevNode;
 			}
+			
+			flag = true;
 		}
 
 		size--;
 
-		return true;
+		return flag;
 
 	}
 	

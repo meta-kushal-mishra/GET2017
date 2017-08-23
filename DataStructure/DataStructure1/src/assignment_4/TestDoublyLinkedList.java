@@ -20,19 +20,19 @@ public class TestDoublyLinkedList {
 	@Test
 	public void testAddAtIndex() {
 		
-		assertEquals(true,doublyLinkedList.add(0, "test1"));
-		assertEquals(true,doublyLinkedList.add(1, "test2"));
-		assertEquals(true,doublyLinkedList.add(2, "test3"));
-		assertEquals(true,doublyLinkedList.add(0, "test4"));
+		assertEquals("test1",doublyLinkedList.add(0, "test1"));
+		assertEquals("test2",doublyLinkedList.add(1, "test2"));
+		assertEquals("test3",doublyLinkedList.add(2, "test3"));
+		assertEquals("test4",doublyLinkedList.add(0, "test4"));
 		
 	}
 	
 	@Test
 	public void testRemoveBasedOnValue() {
 		
-		assertEquals(true,doublyLinkedList.add(0, "welcome"));
-		assertEquals(true,doublyLinkedList.add(1, "you"));
-		assertEquals(true,doublyLinkedList.add(2, "to"));
+		assertEquals("welcome",doublyLinkedList.add(0, "welcome"));
+		assertEquals("you",doublyLinkedList.add(1, "you"));
+		assertEquals("to",doublyLinkedList.add(2, "to"));
 
 		assertEquals(true,doublyLinkedList.remove("welcome"));
 		assertEquals(true,doublyLinkedList.remove("you"));
@@ -41,24 +41,24 @@ public class TestDoublyLinkedList {
 	@Test
 	public void testRemoveBasedOnIndex() {
 		
-		assertEquals(true,doublyLinkedList.add(0, "welcomes"));
-		assertEquals(true,doublyLinkedList.add(1, "you"));
-		assertEquals(true,doublyLinkedList.add(2, "to"));
-		assertEquals(true,doublyLinkedList.add(3, "Linked MergedList"));
+		assertEquals("welcome",doublyLinkedList.add(0, "welcome"));
+		assertEquals("you",doublyLinkedList.add(1, "you"));
+		assertEquals("to",doublyLinkedList.add(2, "to"));
 		
-		assertEquals(true,doublyLinkedList.remove(3));
+		
+		assertEquals(true,doublyLinkedList.remove(2));
 		assertEquals(true,doublyLinkedList.remove(0));
 	}
 
 	@Test
 	public void testGetElementBasedOnIndex() {
 		
-		assertEquals(true,doublyLinkedList.add(0, "this"));
-		assertEquals(true,doublyLinkedList.add(1, "is"));
-		assertEquals(true,doublyLinkedList.add(2, "Linked MergedList"));
+		assertEquals("welcome",doublyLinkedList.add(0, "welcome"));
+		assertEquals("you",doublyLinkedList.add(1, "you"));
+		assertEquals("to",doublyLinkedList.add(2, "to"));
 		
-		assertEquals("this",doublyLinkedList.get(0));
-		assertEquals("is",doublyLinkedList.get(1));
+		assertEquals("welcome",doublyLinkedList.get(0));
+		assertEquals("you",doublyLinkedList.get(1));
 		
 	}
 }

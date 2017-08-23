@@ -28,17 +28,17 @@ public class ArrayList<E> {
 		this.array = new Object[10];
 	}
 
-	public boolean add(E e){
+	public String add(E e){
 
 		// to ensure the size of mergedList
 		ensureCapacity(size+1);
 
 		array[size++] = e;
 
-		return true;
+		return (String) array[size-1];
 	}
 
-	public boolean add(int index , E e){
+	public String add(int index , E e){
 
 		// check for range if it is greater than -1 and less than size
 		checkForRange(index);
@@ -57,10 +57,10 @@ public class ArrayList<E> {
 		// increment size
 		size++;
 
-		return true;
+		return (String) array[index];
 	}
 
-	public boolean remove(int location){
+	public void remove(int location){
 		
 		// check range of index
 		checkForRange(location);
@@ -73,21 +73,19 @@ public class ArrayList<E> {
 
 		size--;
 
-		return true;
-
 	}
 
 	public boolean remove(E e){
 
 		int tempIndex = 0;
 		int i=0;
-		boolean flag = true;
+		boolean flag = false;
 
-		while(i < size && flag){
+		while(i < size && !flag){
 			if(array[i] == e){
 
 				tempIndex = i;
-				flag=false;
+				flag=true;
 			}
 			i++;
 		}
@@ -99,7 +97,7 @@ public class ArrayList<E> {
 			size--;
 		}
 
-		return true;
+		return flag;
 	}
 	
 	public int getIndex(E e){
@@ -140,7 +138,8 @@ public class ArrayList<E> {
 	}
 	
 
-	public boolean overwriteElement(int location,E newValue){
+	@SuppressWarnings("unchecked")
+	public E overwriteElement(int location,E newValue){
 		
 		if(location > size - 1 || location < 0){
 			
@@ -149,7 +148,7 @@ public class ArrayList<E> {
 		
 		array[location] = newValue;
 		
-		return true;
+		return (E)array[location];
 	}
 	
 	public void ensureCapacity(int minCapacity){
@@ -159,7 +158,7 @@ public class ArrayList<E> {
 			// if capacity is less then grow the capacity 
 			if(minCapacity - array.length > 0){
 
-				growCapacity(minCapacity);
+				growCapacity();
 
 			}
 
@@ -176,13 +175,14 @@ public class ArrayList<E> {
 
 	}
 	
-	public void growCapacity(int minCapacity){
+	public int growCapacity(){
 
+		int newCapacity=0; 
 		try{
 
 			int oldCapacity = array.length;
 
-			int newCapacity = oldCapacity + (oldCapacity >> 1);
+			newCapacity = oldCapacity + (oldCapacity >> 1);
 
 			array = Arrays.copyOf(array, newCapacity);
 
@@ -190,16 +190,15 @@ public class ArrayList<E> {
 
 			System.out.println("Something went wrong: "+ex.getMessage());
 		}
+		return newCapacity;
 	}
 	
 	public void checkForRange(int index){
-
+ 
 		if(index > size && index < 0){
 
 			throw new ArrayIndexOutOfBoundsException("index: "+index+"size: "+size);
 		}
-
-
 	}
 	
 	public void reverseList(){
@@ -294,10 +293,10 @@ public class ArrayList<E> {
 
 	}
 	
-	public boolean clearList(){
+	public int clearList(){
 
 		size = 0;
 
-		return true;
+		return size;
 	}
 }
