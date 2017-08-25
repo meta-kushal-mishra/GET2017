@@ -22,7 +22,7 @@ public class TestOperations {
 		assertEquals("AB*CD/+",operations.infixToPostFix("( (A * B) + (C / D) )"));
 		assertEquals("ABC+*D/",operations.infixToPostFix("((A * (B + C) ) / D)"));
 		assertEquals("ABCD/+*",operations.infixToPostFix("(A * (B + (C / D) ) )"));
-		
+		assertEquals("ab+cdj^%i*p/-",operations.infixToPostFix("a+b-c%d^j*i/p"));
 	}
 
 }

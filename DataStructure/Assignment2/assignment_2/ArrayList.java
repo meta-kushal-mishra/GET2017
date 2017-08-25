@@ -4,9 +4,11 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
+
 // generic ArrayList class to support all operations related to mergedList(generic parameter <E>)s 
 public class ArrayList<E> {
 
+	 private static final int ARRAY_SIZE=10;
 	// a variable to define the size of mergedList
 	private int size;
 
@@ -25,7 +27,7 @@ public class ArrayList<E> {
 
 	public ArrayList(){
 
-		this.array = new Object[10];
+		this.array = new Object[ARRAY_SIZE];
 	}
 
 	public void add(E e){
@@ -155,7 +157,7 @@ public class ArrayList<E> {
 			// if capacity is less then grow the capacity 
 			if(minCapacity - array.length > 0){
 
-				growCapacity(minCapacity);
+				growCapacity();
 
 			}
 
@@ -172,7 +174,7 @@ public class ArrayList<E> {
 
 	}
 	
-	public void growCapacity(int minCapacity){
+	public void growCapacity(){
 
 		try{
 

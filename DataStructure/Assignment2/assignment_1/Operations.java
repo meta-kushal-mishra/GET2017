@@ -137,17 +137,18 @@ public class Operations {
 					if(operatorFlag){
 						
 						// if precedence of current operator is greater than stack operator
-						if(precedence(currentChar) >= precedence(tempStack.getTop())){
+						if(precedence(currentChar) > precedence(tempStack.getTop()) || tempStack.isEmpty()){
 
 							tempStack.push(currentChar);
 						}
 						
 						// else add both to postFix string
 						else{
-
-							postfixString += currentChar ;
-							postfixString += tempStack.pop();
-
+							while(!tempStack.isEmpty() && (precedence(currentChar) <= precedence(tempStack.getTop())) ){
+								
+								postfixString += tempStack.pop();
+							}
+							tempStack.push(currentChar);	
 						}
 					}
 					
