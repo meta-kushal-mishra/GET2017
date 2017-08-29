@@ -40,8 +40,9 @@ public class JobScheduling {
 				case 1 : 
 
 					int jobPriority = jobScheduling.getUserIntegerInput("Please enter the priority of job");
+					String jobMessage = jobScheduling.getUserStringInput("Enter message for job");
 
-					priorityQueue.insertJob(jobPriority);
+					priorityQueue.insertJob(jobPriority, jobMessage);
 
 					break;                          
 

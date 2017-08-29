@@ -69,11 +69,11 @@ class PriorityQueue{
 
 	}
 	
-	public void insertJob(int priority){
+	public void insertJob(int priority, String message){
 
 		try{
 
-			Job newJob = new Job(priority);
+			Job newJob = new Job(priority, message);
 
 			jobList.add(newJob);
 
