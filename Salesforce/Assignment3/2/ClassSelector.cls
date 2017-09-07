@@ -18,6 +18,12 @@ public class ClassSelector extends fflib_SObjectSelector implements IClassSelect
    }
     
     public List<Class__c> getClassById() {   
-    	return (List<Class__c>) Database.query( newQueryFactory().toSOQL());
+    	String fieldList = 'Id, Name';
+		String query = String.format('SELECT {0}, (SELECT Id, Name from Students__r) from {1} ',
+				new List<String>{
+					fieldList,
+					getSObjectName()
+				});
+		return (List<Class__c>) Database.query(query);
 	}
 }

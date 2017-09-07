@@ -8,10 +8,11 @@ public class NumOfWorkingDays {
            if(tempStartDate.daysBetween(tempStartDate.toStartofWeek()) == 0 ||
               tempStartDate.daysBetween(tempStartDate.toStartofWeek()) == -6){
            			tempStartDate = tempStartDate.adddays(1);
-           			continue;
        		}
-            numOfWorkingDays = numOfWorkingDays+1;
-      		tempStartDate = tempStartDate.adddays(1);
+			else{
+				numOfWorkingDays = numOfWorkingDays+1;
+				tempStartDate = tempStartDate.adddays(1);
+			}
         }        
         return numOfWorkingDays;
     }

@@ -17,10 +17,6 @@ public class OpportunityUpdate extends fflib_SObjectDomain {
 	}
     
     public void accountUpdate(){
-        for(Opportunity opp : (List<Opportunity>) Records) {                  
-            if(opp.BillToContact__c != null && opp.Manager__c == null){
-                    opp.Manager__c =opp.Account.Id;
-                }
-        }
+       ManagerUpdate.updateManager((List<Opportunity>) Records);
     }
 }

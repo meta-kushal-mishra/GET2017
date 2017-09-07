@@ -14,10 +14,10 @@ public  class StudentSelector extends fflib_SObjectSelector implements IStudentS
     
    
     public List<Student__c> getStudentsById(ID id) {   
-    return (List<Student__c>) Database.query(
+		return (List<Student__c>) Database.query(
         
-        newQueryFactory().
-        setCondition('Student__c.Class__r.id = :id').
-        toSOQL());
-}
+			newQueryFactory().
+			setCondition('Student__c.Class__r.id = :id').
+			toSOQL());
+	}
 }

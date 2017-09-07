@@ -14,10 +14,10 @@ public class OpportunitySelector extends fflib_SObjectSelector implements IOppor
     
    
     public List<Opportunity> getOpportunityByModifiedDate() {   
-    return (List<Opportunity>) Database.query(
+		return (List<Opportunity>) Database.query(
         
-        newQueryFactory().
-        setCondition('LastModifiedDate=LAST_N_DAYS:30').
-        toSOQL());
+			newQueryFactory().
+			setCondition('LastModifiedDate>LAST_N_DAYS:30').
+			toSOQL());
 	}
 }

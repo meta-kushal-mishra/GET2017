@@ -1,7 +1,14 @@
 public  class StudentsInClass{
     
-    public static List<Student__c> getStudents(){
-    	//StudentsInClass students = new StudentsInClass();
-    	return(new StudentSelector().getStudentsById('a017F000002fFGgQAM'));
+    public static List<String> getStudents(String id){
+    	
+    	List<Student__c> studentList = new StudentSelector().getStudentsById(id);
+    	List<String> studentNames = new List<String>();
+    	
+    	for(Student__c student : studentList){
+    		studentNames.add(student.LastName__c);
+    	}
+    		
+    	return studentNames;
     }
 }

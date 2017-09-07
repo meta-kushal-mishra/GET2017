@@ -1,4 +1,4 @@
 public interface IListOfSObjectService {
     
-    void listobjects();
+    List<Schema.SObjectType> listobjects();
 }

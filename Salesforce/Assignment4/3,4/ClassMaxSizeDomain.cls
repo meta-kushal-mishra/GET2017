@@ -36,29 +36,27 @@ public class ClassMaxSizeDomain extends fflib_SObjectDomain{
       }
       
   }
-     public override void onAfterInsert()
-   {
-Map<Student__c,Class__c> studentClassMap = new Map<Student__c,Class__c>();
-      studentClassMap = generateStudentClassMap();
-List<Class__c> clss = new List<Class__c>();
-      for(Student__c student: studentClassMap.keySet())
-      {
+     public override void onAfterInsert(){
+	 
+		Map<Student__c,Class__c> studentClassMap = new Map<Student__c,Class__c>();
+		studentClassMap = generateStudentClassMap();
+		List<Class__c> clss = new List<Class__c>();
+		for(Student__c student: studentClassMap.keySet()){
           Class__c cls = studentClassMap.get(student); 
           cls.MyCount__c = cls.NumberOfStudents__c +1;
           clss.add(cls);
       }
        update clss;
    } 
-     public override void onAfterUpdate(Map<Id,SObject> existingRecords)
-   {
-Map<Student__c,Class__c> studentClassMap = new Map<Student__c,Class__c>();
-      studentClassMap = generateStudentClassMap();
-List<Class__c> clss = new List<Class__c>();
-      for(Student__c student: studentClassMap.keySet())
-      {
-          Class__c cls = studentClassMap.get(student); 
-          cls.MyCount__c = cls.NumberOfStudents__c;
-          clss.add(cls);
+     public override void onAfterUpdate(Map<Id,SObject> existingRecords){
+		Map<Student__c,Class__c> studentClassMap = new Map<Student__c,Class__c>();
+		studentClassMap = generateStudentClassMap();
+		List<Class__c> clss = new List<Class__c>();
+        for(Student__c student: studentClassMap.keySet()){
+	  
+			Class__c cls = studentClassMap.get(student); 
+			cls.MyCount__c = cls.NumberOfStudents__c;
+			clss.add(cls);
       }
        update clss;
    } 
