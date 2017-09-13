@@ -7,12 +7,13 @@ public class OpportunityServiceImp implements IOpportunityService, Schedulable {
 	public Integer sendMail(){
    		List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
    		List<Opportunity> oppList = new OpportunitySelector().getOpportunityByModifiedDate(); 
+		EmailTemplate templateId = [Select id from EmailTemplate where name = 'OpportunityOwner'];
      	for(Opportunity op : oppList){
-          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-          mail.setTemplateId('00X7F000000l8wqUAA');
-          mail.setTargetObjectId(op.Owner.id);
-        //  mail.setSaveAsActivity(false);
-          mails.add(mail);
+			Mwssaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+			mail.setTemplateId(templateId.id);
+			mail.setTargetObjectId(op.Owner.id);
+			//  mail.setSaveAsActivity(false);
+			mails.add(mail);
     	}
       	if ( mails.size() > 0 )
         	Messaging.sendEmail(mails, false);
